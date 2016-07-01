@@ -1,0 +1,157 @@
+/* Base Application Styles */
+@font-face{
+  font-family: 'icons-turn-arrow';
+  src:url(../fonts/icons/iconfont.eot) format("embedded-opentype"),
+      url(../fonts/icons/iconfont.svg) format("svg"),
+      url(../fonts/icons/iconfont.ttf) format("truetype"),
+      url(../fonts/icons/iconfont.woff) format("woff");
+}
+html,body{
+  height: 100%;
+  width: 100%;
+
+  background-color: #222;
+}
+#app{
+  margin:30px auto;
+  width: 80%;
+  height: 80%;
+}
+/*stage--start*/
+.stage{
+  position: relative;
+
+  width: 100%;
+  height: 580px;
+  background: #609;
+}
+/*stage--end*/
+
+/*image--start*/
+.img-sec{
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  background-color: #ddd;
+
+  @at-root{
+    .imgFigure{
+      position: absolute;
+
+      width: 240px;
+      height: 270px;
+      margin: 0;
+      padding: 30px;
+
+      background-color: #fff;
+
+      box-sizing: border-box;
+      cursor: pointer;
+
+      transform-style:preserve-3d;
+      transform-origin: 70% 50% 0;
+      perspective: 600px;
+
+      transition: left .6s,top .6s,transform .6s;
+
+      &.is-inverse{
+        transform:rotateY(-180deg) translate(240px*0.3);
+      }
+      .imgBack{
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        width: 100%;
+        height: 100%;
+
+        padding: 30px;
+
+        box-sizing: border-box;
+
+        text-align: center;
+        color: #a7a0a2;
+        font: {
+          size:16px;
+          family:"微软雅黑";
+        };
+
+        transform-origin: 50% 50% 0; 
+        transform:rotateY(180deg) translateZ(1px);
+        background: #fff;
+      }
+    }
+    .imgTitle{
+      text-align: center;
+      margin: 20px 0 0 0;
+      color: #a7a0a2;
+      font: {
+        size:16px;
+        family:"微软雅黑"; 
+      }
+    }
+  }
+
+}
+/*imgage--end*/
+/*controller--start*/
+.controller-nav{
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+
+  z-index: 101;
+
+  width: 100%;
+
+  text-align: center;
+  @at-root{
+    .controllerUnits{
+      display: inline-block;
+      margin: 0 5px;
+      width: 20px;
+      height: 20px;
+
+      text-align: center;
+
+      cursor: pointer;
+      background-color: #aaa;
+
+      border-radius: 50%;
+      transform: scale(.8);
+
+      vertical-align: middle;
+
+      transition: transform .6s,background-color .6s;
+
+      &.isCenter{
+        background-color: #888;
+        transform: scale(1.2);
+
+        &::after{
+          vertical-align:middle;
+          line-height:16px;
+          color:#fff;
+          content: "\f013b";
+          font:{
+            size:12px;
+            family:'icons-turn-arrow';
+          };
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        };
+
+        &.isInverse{
+          background-color: #555;
+          transform:scale(1.2) rotateY(180deg);
+        }
+
+      }
+    }
+  }
+}
+/*controller--end*/
